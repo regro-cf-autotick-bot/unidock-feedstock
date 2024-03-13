@@ -1,5 +1,5 @@
 {% set name = "unidock" %}
-{% set version = "1.1.0" %}
+{% set version = "1.1.1" %}
 
 package:
   name: {{ name|lower }}
@@ -7,7 +7,7 @@ package:
 
 source:
   url: https://github.com/dptech-corp/Uni-Dock/archive/refs/tags/{{ version }}.tar.gz
-  sha256: d8147e596079632221ef3c692cb1f1e6fc6e9a1e9303d2bcd44afe1508557af0
+  sha256: 6400e9418249c01f3963f9f3bfe08472cc2ab63d0096ace66ad6b40b45e8e812
 
 build:
   skip: true  # [not linux]
@@ -49,11 +49,8 @@ about:
   license_file: unidock/LICENSE
   summary: A GPU-accelerated molecular docking program
   description: >
-    Uni-Dock is a GPU-accelerated molecular docking program developed by DP Technology.
-    It supports various scoring functions including vina, vinardo, and ad4.
-    Uni-Dock achieves more than 1000-fold speed-up on V100 GPU with high-accuracy,
-    compared with the AutoDock Vina running in single CPU core.
-    The paper has been accepted by JCTC (doi: 10.1021/acs.jctc.2c01145).
+    Uni-Dock is a GPU-accelerated molecular docking program developed by DP Technology. It supports various scoring functions including vina, vinardo, and ad4. Uni-Dock achieves more than 1000-fold speed-up on V100 GPU with high-accuracy, compared with the AutoDock Vina running in single CPU core. The paper has been accepted
+    by JCTC (doi: 10.1021/acs.jctc.2c01145).
 
 extra:
   recipe-maintainers:
