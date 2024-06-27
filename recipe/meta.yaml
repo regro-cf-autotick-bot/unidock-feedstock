@@ -14,13 +14,17 @@ build:
   skip: true  # [cuda_compiler_version == "None"]
   skip: true  # [cuda_compiler_version == "11.2"]
   script: |
+    cd unidock_tools
+    pip install . -vv
+    cd ..
     cd unidock
-    mkdir conda_build && cd conda_build
+    mkdir conda_build
+    cd conda_build
     cmake ${CMAKE_ARGS} ${SRC_DIR}/unidock
     make unidock -j$CPU_COUNT
     make install
   string: cuda{{ cuda_compiler_version | replace('.', '') }}_h{{ PKG_HASH }}_{{ PKG_BUILDNUM }}
-  number: 0
+  number: 1
 
 requirements:
   build:
@@ -31,13 +35,23 @@ requirements:
     - make
     - libgomp
   host:
+    - pip
     - libboost-devel
     - libcurand-dev  # [(cuda_compiler_version or "").startswith("12")]
+  run:
+    - python
+    - MDAnalysis
+    - networkx
+    - numpy
+    - pandas
+    - pathos
+    - rdkit
 
 test:
   commands:
     # Dry run to verify dynamic libs are present.
     - unidock --version
+    - unidocktools --help
 
 about:
   home: https://github.com/dptech-corp/Uni-Dock
