@@ -24,7 +24,7 @@ build:
     make unidock -j$CPU_COUNT
     make install
   string: cuda{{ cuda_compiler_version | replace('.', '') }}_h{{ PKG_HASH }}_{{ PKG_BUILDNUM }}
-  number: 1
+  number: 2
 
 requirements:
   build:
