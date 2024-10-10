@@ -37,6 +37,7 @@ requirements:
   host:
     - python
     - pip
+    - setuptools
     - libboost-devel
     - libcurand-dev  # [(cuda_compiler_version or "").startswith("12")]
   run:
