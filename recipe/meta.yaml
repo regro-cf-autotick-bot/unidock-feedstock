@@ -35,6 +35,7 @@ requirements:
     - make
     - libgomp
   host:
+    - python
     - pip
     - libboost-devel
     - libcurand-dev  # [(cuda_compiler_version or "").startswith("12")]
